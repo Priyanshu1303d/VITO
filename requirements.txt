@@ -1,0 +1,22 @@
+# Web Framework & Server
+fastapi>=0.109.0
+uvicorn>=0.27.0
+
+# Frontend
+streamlit>=1.30.0
+requests>=2.31.0
+
+# AI & Orchestration
+langchain>=0.1.0
+langchain-groq>=0.0.1
+langgraph>=0.0.20
+
+# Data Validation & Processing
+pydantic>=2.5.3
+pandas>=2.2.0
+
+# Environment & Utility
+python-dotenv>=1.0.1
+pytest>=8.0.0
+
+-e .
