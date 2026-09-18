@@ -322,7 +322,8 @@ uv pip install --python .venv\Scripts\python.exe -r requirements.txt
 .venv\Scripts\uvicorn.exe main:app --reload --port 8000
 
 # Start Streamlit (in a new terminal)
-.venv\Scripts\streamlit.exe run streamlit/app.py
+.venv\Scripts\activate
+streamlit run streamlit/app.py
 ```
 
 > **Prerequisite:** Make sure [uv](https://docs.astral.sh/uv/) is installed and available in your PATH.
