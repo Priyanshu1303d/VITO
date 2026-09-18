@@ -105,6 +105,7 @@ VITO/
 ├── setup.py
 ├── template.py
 ├── .env.example
+├── run.bat (use this to run the project with one command in terminal run.bat)
 │
 ├── src/
 │   ├── __init__.py
@@ -238,6 +239,9 @@ cd VITO
 ```bash
 python -m venv .venv
 .venv\Scripts\activate
+
+# or you can use uv
+uv venv .venv --python 3.11
 ```
 
 #### Linux / macOS
@@ -285,41 +289,43 @@ GROQ_MODEL_NAME=openai/gpt-oss-120b
 
 ## Running the Application
 
-VITO consists of a FastAPI backend and a Streamlit frontend.
+### Local Setup
+Windows One-Click Launcher
 
-Both need to be running.
+For Windows users, VITO includes a one-click launcher that automatically sets up the Python environment, installs dependencies, and starts both the FastAPI backend and Streamlit frontend. 
 
-### 1. Start FastAPI
-
-From the project root:
-
-```bash
-uvicorn main:app --reload --port 8000
-```
-
-The backend will be available at:
-
-```text
-http://localhost:8000
-```
-
-FastAPI's interactive API documentation is available at:
-
-```text
-http://localhost:8000/docs
-```
-
-### 2. Start Streamlit
-
-Open a second terminal and run:
+Run this command:
 
 ```bash
-cd streamlit
-streamlit run app.py
+run.bat
 ```
 
-Streamlit will provide a local URL where the VITO dashboard can be accessed.
+The launcher will:
 
+1. Create a Python 3.11 virtual environment using `uv` if `.venv` does not exist.
+2. Install the required dependencies from `requirements.txt`.
+3. Start the FastAPI backend on `http://localhost:8000`.
+4. Start the Streamlit frontend on `http://localhost:8501`.
+
+### Manual Setup
+
+If you prefer to run the services manually:
+
+```bash
+# Create virtual environment
+uv venv .venv --python 3.11
+
+# Install dependencies
+uv pip install --python .venv\Scripts\python.exe -r requirements.txt
+
+# Start FastAPI
+.venv\Scripts\uvicorn.exe main:app --reload --port 8000
+
+# Start Streamlit (in a new terminal)
+.venv\Scripts\streamlit.exe run streamlit/app.py
+```
+
+> **Prerequisite:** Make sure [uv](https://docs.astral.sh/uv/) is installed and available in your PATH.
 ---
 
 ## Data Storage
