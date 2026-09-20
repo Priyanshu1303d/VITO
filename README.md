@@ -14,6 +14,8 @@ When an employee submits an IT issue, VITO processes it through a LangGraph work
 
 ```mermaid
 graph TD
+    Frontend[Streamlit UI] --> Backend[FastAPI]
+    Backend[FastAPI] --> A[START]
     A[START] --> B[classify_issue]
     B --> C[retrieve_policy]
     C --> D[decide_action]
