@@ -32,7 +32,7 @@ graph TD
     I --> J[create_ticket]
     J --> K[write_audit]
     K --> F
-````
+```
 
 ---
 
